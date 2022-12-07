@@ -1,7 +1,7 @@
 import "./styles.css";
 let mapIsLoaded = null;
 
-window.initMap = function () {
+function initMap() {
   let wooskey = "woos-4fdc8f8d-e161-3fb8-9a57-e1759c71716a";
 
   const queryParams = new URLSearchParams(window.location.search);
@@ -45,4 +45,4 @@ window.initMap = function () {
   );
 };
 
-window.initMap();
+window.initMap = initMap;
