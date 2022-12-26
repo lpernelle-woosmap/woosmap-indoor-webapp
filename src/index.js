@@ -28,7 +28,7 @@ function initMap() {
   }
 
   if (queryParams.get("feature") != null) {
-    indoorRendererConfiguration.highlightPOI = queryParams.get("feature");
+    indoorRendererConfiguration.highlightPOIByRef = queryParams.get("feature");
   }
 
   const indoorWidget = new window.woosmap.map.IndoorWidget(
