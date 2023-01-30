@@ -59,7 +59,7 @@ function initMap() {
             lat: bbox[3]
           }
         );
-        window.map.fitBounds(bounds);
+        window.myMap.fitBounds(bounds);
       }
     }
   );
