@@ -42,7 +42,7 @@ function initMap() {
     (venue) => {
       mapIsLoaded = true;
       if (queryParams.get("building") != null) {
-        let buildingValue = queryParams.get("venue");
+        let buildingValue = queryParams.get("building");
         const building = venue.buildings.filter(
           (building) => building.ref === buildingValue
         )[0];
