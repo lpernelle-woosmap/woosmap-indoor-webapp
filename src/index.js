@@ -41,6 +41,26 @@ function initMap() {
     "indoor_venue_loaded",
     (venue) => {
       mapIsLoaded = true;
+      if (queryParams.get("building") != null) {
+        let buildingValue = queryParams.get("venue");
+        const building = venue.buildings.filter(
+          (building) => building.ref === buildingValue
+        )[0];
+        console.log(building);
+        const bbox = building.levels.filter((level) => level.level === 0)[0].bbox;
+        console.log(bbox);
+        const bounds = new woosmap.map.LatLngBounds(
+          {
+            lng: bbox[0],
+            lat: bbox[1]
+          },
+          {
+            lng: bbox[2],
+            lat: bbox[3]
+          }
+        );
+        window.map.fitBounds(bounds);
+      }
     }
   );
 };
