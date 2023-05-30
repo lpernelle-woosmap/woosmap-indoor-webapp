@@ -20,7 +20,9 @@ function initMap() {
 
   const indoorRendererConfiguration = {
     centerMap: false,
-    defaultFloor: 0
+    defaultFloor: 0,
+    theme: "woosmap_default",
+    forceExtrusion: true
   };
 
   if (queryParams.get("venue") != null) {
