@@ -6,9 +6,14 @@ function initMap() {
 
   const queryParams = new URLSearchParams(window.location.search);
   let forceExtrusion = false;
+  let theme = "woosmap_default";
 
   if (queryParams.get("key") != null) {
     wooskey = queryParams.get("key");
+  }
+  
+  if (queryParams.get("theme") != null) {
+    theme = queryParams.get("theme");
   }
   
   if (queryParams.get("forceExtrusion") != null) {
@@ -27,7 +32,7 @@ function initMap() {
   const indoorRendererConfiguration = {
     centerMap: false,
     defaultFloor: 0,
-    theme: "woosmap_default",
+    theme: theme,
     forceExtrusion: forceExtrusion
   };
 
