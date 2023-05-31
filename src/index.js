@@ -24,7 +24,7 @@ function initMap() {
   window.woosmap.map.config.setApiKey(wooskey);
 
   
-  const mapConf = {
+  let mapConf = {
     center: { lat: 48.844437932920535, lng: 2.3743880269761393 },
     zoom: 6,
     gestureHandling: "greedy"
@@ -102,11 +102,11 @@ function initMap() {
         ]
       }
     ]
-  }
+  };
   
   if (queryParams.get("venue") == "ol_vallee_leo") {
      mapConf = mapConfOL;
-  }
+  };
 
   const indoorRendererConfiguration = {
     centerMap: false,
@@ -117,11 +117,11 @@ function initMap() {
 
   if (queryParams.get("venue") != null) {
     indoorRendererConfiguration.venue = queryParams.get("venue");
-  }
+  };
 
   if (queryParams.get("feature") != null) {
     indoorRendererConfiguration.highlightPOIByRef = queryParams.get("feature");
-  }
+  };
 
   window.myMap = new window.woosmap.map.Map(document.getElementById("map"), mapConf);
   
