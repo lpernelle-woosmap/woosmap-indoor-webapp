@@ -5,9 +5,11 @@ function initMap() {
   let wooskey = "woos-4fdc8f8d-e161-3fb8-9a57-e1759c71716a";
 
   const queryParams = new URLSearchParams(window.location.search);
+  let forceExtrusion = false;
 
   if (queryParams.get("key") != null) {
     wooskey = queryParams.get("key");
+    forceExtrusion = queryParams.get("forceExtrusion");
   }
 
   window.woosmap.map.config.setApiKey(wooskey);
@@ -22,7 +24,7 @@ function initMap() {
     centerMap: false,
     defaultFloor: 0,
     theme: "woosmap_default",
-    forceExtrusion: true
+    forceExtrusion: forceExtrusion
   };
 
   if (queryParams.get("venue") != null) {
