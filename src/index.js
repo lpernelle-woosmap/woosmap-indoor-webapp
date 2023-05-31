@@ -9,8 +9,12 @@ function initMap() {
 
   if (queryParams.get("key") != null) {
     wooskey = queryParams.get("key");
+  }
+  
+  if (queryParams.get("forceExtrusion") != null) {
     forceExtrusion = queryParams.get("forceExtrusion");
   }
+
 
   window.woosmap.map.config.setApiKey(wooskey);
 
