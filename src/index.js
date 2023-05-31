@@ -156,9 +156,9 @@ function initMap() {
         window.myMap.fitBounds(bounds);
       }
       if (queryParams.get("venue") == "ol_vallee_leo") {
-            window.map.setTilt(40);
-            window.map.setZoom(16);
-            window.map.setHeading(0);
+            window.myMap.setTilt(40);
+            window.myMap.setZoom(16);
+            window.myMap.setHeading(0);
       }
     }
   );
