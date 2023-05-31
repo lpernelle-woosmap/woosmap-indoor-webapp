@@ -23,11 +23,90 @@ function initMap() {
 
   window.woosmap.map.config.setApiKey(wooskey);
 
-  window.myMap = new window.woosmap.map.Map(document.getElementById("map"), {
+  
+  const mapConf = {
     center: { lat: 48.844437932920535, lng: 2.3743880269761393 },
     zoom: 6,
     gestureHandling: "greedy"
-  });
+  };
+  
+  const mapConfOL = {
+    gestureHandling: "greedy",
+    styles: [
+      {
+        featureType: "landscape.natural.background",
+        elementType: "geometry.fill",
+        stylers: [
+          {
+            color: "#f2f2f2"
+          }
+        ]
+      },
+      {
+        featureType: "poi.sports_complex",
+        elementType: "geometry",
+        stylers: [
+          {
+            visibility: "off"
+          }
+        ]
+      },
+      {
+        featureType: "water",
+        elementType: "geometry.fill",
+        stylers: [
+          {
+            color: "#F3F8FF"
+          }
+        ]
+      },
+      {
+        featureType: "road.highway",
+        elementType: "geometry.fill",
+        stylers: [
+          {
+            color: "#e5a00b"
+          },
+          {
+            saturation: 60
+          },
+          {
+            lightness: 35
+          }
+        ]
+      },
+      {
+        featureType: "landscape.man_made",
+        elementType: "geometry.fill",
+        stylers: [
+          {
+            color: "#ffffff"
+          }
+        ]
+      },
+      {
+        featureType: "transit",
+        stylers: [
+          {
+            visibility: "off"
+          }
+        ]
+      },
+      {
+        featureType: "poi.school",
+        elementType: "geometry.fill",
+        stylers: [
+          {
+            color: "#f2f2f2"
+          }
+        ]
+      }
+    ]
+  }
+  
+  if (queryParams.get("venue") == "ol_vallee_leo") {
+     mapConf = mapConfOL;
+  }
 
   const indoorRendererConfiguration = {
     centerMap: false,
@@ -44,6 +123,8 @@ function initMap() {
     indoorRendererConfiguration.highlightPOIByRef = queryParams.get("feature");
   }
 
+  window.myMap = new window.woosmap.map.Map(document.getElementById("map"), mapConf);
+  
   const indoorWidget = new window.woosmap.map.IndoorWidget(
     null,
     indoorRendererConfiguration
@@ -73,6 +154,11 @@ function initMap() {
           }
         );
         window.myMap.fitBounds(bounds);
+      }
+      if (queryParams.get("venue") == "ol_vallee_leo") {
+            window.map.setTilt(40);
+            window.map.setZoom(16);
+            window.map.setHeading(0);
       }
     }
   );
