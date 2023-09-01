@@ -106,10 +106,11 @@ function initMap() {
   
   if (queryParams.get("venue") == "ol_vallee_leo") {
      mapConf = mapConfOL;
+     theme = "ol_theme1";
   };
 
   const indoorRendererConfiguration = {
-    centerMap: false,
+    centerMap: true,
     defaultFloor: 0,
     theme: theme,
     forceExtrusion: forceExtrusion
