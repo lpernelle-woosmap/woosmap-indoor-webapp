@@ -121,13 +121,6 @@ function initMap() {
     indoorRendererConfiguration.centerMap = false;
   };
 
-  const indoorRendererConfiguration = {
-    centerMap: true,
-    defaultFloor: 0,
-    theme: theme,
-    forceExtrusion: forceExtrusion
-  };
-
   if (queryParams.get("venue") != null) {
     indoorRendererConfiguration.venue = queryParams.get("venue");
   };
