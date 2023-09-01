@@ -32,6 +32,10 @@ function initMap() {
   
   const mapConfOL = {
     gestureHandling: "greedy",
+    center: { lat: 45.76767, lng: 4.98138 },
+    zoom: 16.4,
+    tilt: 45,
+    heading: -168,
     styles: [
       {
         featureType: "landscape.natural.background",
@@ -103,10 +107,18 @@ function initMap() {
       }
     ]
   };
+
+  let indoorRendererConfiguration = {
+    centerMap: true,
+    defaultFloor: 0,
+    theme: theme,
+    forceExtrusion: forceExtrusion
+  };
   
   if (queryParams.get("venue") == "ol_vallee_leo") {
      mapConf = mapConfOL;
      theme = "ol_theme1";
+    indoorRendererConfiguration.centerMap = false;
   };
 
   const indoorRendererConfiguration = {
